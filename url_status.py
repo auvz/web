@@ -1,4 +1,4 @@
-import requests, sys
+import requests, sys, re
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 from socket import gethostbyname, gaierror
 
@@ -12,7 +12,10 @@ def main():
         print("Checking URL status...\n")
         errors = []
         for url in f.readlines(): 
-            url=url.rstrip('\n')
+            if re.search('^http',url):
+                url=url.rstrip('\n')
+            else:
+                url="https://"+url.rstrip('\n')
             requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
             try:
                 r = requests.head(url, verify=False)
