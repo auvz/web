@@ -16,6 +16,7 @@ def main():
                 url=url.rstrip('\n')
             else:
                 url="https://"+url.rstrip('\n')
+#            url=url.rstrip('\n')
             requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
             try:
                 r = requests.head(url, verify=False)
@@ -25,7 +26,8 @@ def main():
                #print("[-]",url,err)
                 errors.append(url) 
         print("")
-        print("[!] The following hostname(s) may be invalid:", *errors,sep='\n')
-        print("")
+        if errors: 
+            print("[!] The following hostname(s) may be invalid:", *errors,sep='\n')
+            print("")
 url_list = sys.argv[1]
 main()
