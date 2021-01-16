@@ -14,7 +14,7 @@ add_routes() {
         resolve_hostname
         for ip in ${ip_arr[@]};
         do
-        sudo route add $ip -netmask 255.255.255.255 $vpn
+        sudo route add $ip -netmask 255.255.255.255 $vpn 2> /dev/null
         sleep 1
         done
 }
