@@ -8,7 +8,6 @@ echo 'Routes for the following IP will be added:'
 printf '%s\n' "${ip_arr[@]}"
 }
 
-#TODO: fix array parsing
 
 #calls the resolve_hostname function and adds routes to the VPN gateway variable
 add_routes() {
