@@ -14,14 +14,15 @@ add_routes() {
         resolve_hostname
         for ip in ${ip_arr[@]};
         do
-        sudo route add $ip -netmask 255.255.255.255 $vpn 2> /dev/null
-        sleep 1
+//hardcoded vpn ip
+        sudo route add $ip -netmask 255.255.255.255 <INSERT IP> 2> /dev/null
+        sleep 0.5
         done
 }
 
 echo Enter hostname:
 read -a varhost
 echo Enter vpn IP gateway:
-read vpn
+//read vpn
 declare -a ip_arr
 add_routes
