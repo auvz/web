@@ -35,5 +35,6 @@ add_routes() {
 
 echo '[*] Enter Hostnames (seperated by a space):'
 read -a varhost
+echo ''
 declare -a ip_arr
 add_routes
