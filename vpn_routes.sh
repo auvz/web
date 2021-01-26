@@ -4,7 +4,7 @@ resolve_hostname() {
         do
                 ip_arr+=("`host $host | awk '/has address/ { print $4 }'`")
         done
-echo 'Routes for the following IP will be added:'
+echo '[+] A route for the following IP will be added:'
 printf '%s\n' "${ip_arr[@]}"
 }
 
