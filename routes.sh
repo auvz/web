@@ -10,6 +10,8 @@ resolve_hostname() {
 # array[@] is all the elements, 0 is the offset (always is 0-based), and 1 is the number of elements desired.
 
 if [[ ${ip_arr[@]:0:1} == "" ]]; then 
+
+# TODO - logic is stuffed, if one host resolves and one doesn't then it'll still return the below error
 		printf '[!] Unable to resolve hostnames'
 	else
 		echo '[+] A route for the following will be added:'
