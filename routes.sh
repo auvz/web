@@ -16,7 +16,6 @@ resolve_hostname() {
 # array[@] is all the elements, 0 is the offset (always is 0-based), and 1 is the number of elements desired.
 # if [[ ${ip_arr[@]:0:1} == "" ]]; then
 
-# TODO - could improve logic by showing which hosts were unable to be resolved
 #printf '%s\n' "${ip_fail[@]}"
 
         if [ ${#ip_resolve[@]} -eq  0 ]; then
@@ -50,3 +49,4 @@ echo ''
 declare -a ip_arr
 declare -a ip_resolve
 add_routes
+#TODO - [-] unable to resolve the following hostnames
