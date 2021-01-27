@@ -4,7 +4,7 @@ resolve_hostname() {
         do      
                 ip_arr+=("`host $host | awk '/has address/ { print $4 }'`")
                 if [[ -n $host ]]; then
-                        ip_resolve+=($ip)
+                        ip_resolve+=($host)
                 fi
         done
 
