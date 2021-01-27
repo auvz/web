@@ -1,11 +1,14 @@
 #function to resolve hostnames and store variable in array
 resolve_hostname() {
         for host in "${varhost[@]}";
-        do      
+        do
                 ip_arr+=("`host $host | awk '/has address/ { print $4 }'`")
-                if [[ -n $host ]]; then
-                        ip_resolve+=($host)
-                fi
+                for ip in "${ip_arr[@]}";
+                do
+                        if [[ -n $ip ]]; then
+                        ip_resolve+=($ip)
+                        fi
+                done
         done
 
 # Use this notation for resolving index differenece between bash and zsh
@@ -18,13 +21,13 @@ resolve_hostname() {
 
         if [ ${#ip_resolve[@]} -eq  0 ]; then
         printf '[!] Unable to resolve hostnames'
-        else    
+        else
                 echo '[+] A route for the following will be added:'
         fi
 printf '%s\n' "${ip_resolve[@]}"
 }
 
-# calls the resolve_hostname function and adds routes to the hardcoded VPN gateway i.e. 10.1.1.1, could make this variable but unlikely to change
+# calls the resolve_hostname function and adds routes to hardcoded VPN gateway i.e. 10.1.1.1 (static)
 # if you want to preserve spaces, use quotation marks around the array, but this screws up the script
 
 add_routes() {
@@ -39,7 +42,7 @@ add_routes() {
 }
 
 
-# -p   For an array, display the attributes and values of each name. When '-p' is used, additional options are ignored.
+# -p  For an array, display the attributes and values of each name. When '-p' is used, additional options are ignored.
 
 echo '[*] Enter Hostnames (Seperated by a space):'
 read -a varhost
