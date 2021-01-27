@@ -20,7 +20,7 @@ resolve_hostname() {
 #printf '%s\n' "${ip_fail[@]}"
 
         if [ ${#ip_resolve[@]} -eq  0 ]; then
-        printf '[!] Unable to resolve hostnames'
+                echo '[!] Unable to resolve hostnames'
         else
                 echo '[+] A route for the following will be added:'
         fi
