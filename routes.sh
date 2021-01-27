@@ -31,7 +31,7 @@ printf '%s\n' "${ip_resolve[@]}"
 
 add_routes() {
         resolve_hostname
-        for ip in ${ip_arr[@]};
+        for ip in ${ip_resolve[@]};
         do
                 sudo route add $ip -netmask 255.255.255.255 10.1.1.1 2> /dev/null
 # decide whether to redirect STDOUT and STDERR to /dev/null (&>)
