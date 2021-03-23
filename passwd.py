@@ -8,7 +8,7 @@ L1 = ["".join([choice(chars) for i in range(6)]) for j in range(1)]
 L2 = ["".join([choice(chars) for i in range(6)]) for j in range(1)]
 L3 = ["".join([choice(chars) for i in range(6)]) for j in range(1)]
 
-# output password similar to MAC output
+# output password
 
 L = L1 + L2 + L3
 
